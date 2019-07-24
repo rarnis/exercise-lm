@@ -3,13 +3,15 @@
  * https://github.com/swagger-api/swagger-codegen
  * Do not edit the class manually.
  */
-package io.swagger.api;
+package it.lm.api;
 
-import io.swagger.model.Category;
-import io.swagger.model.Good;
 import java.util.List;
-import io.swagger.model.Order;
+
 import io.swagger.annotations.*;
+import it.lm.model.Category;
+import it.lm.model.Good;
+import it.lm.model.Order;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,7 +46,7 @@ public interface GoodApi {
         @ApiResponse(code = 200, message = "successful operation", response = Order.class),
         @ApiResponse(code = 400, message = "Invalid input"),
         @ApiResponse(code = 503, message = "Fatal Error") })
-    @RequestMapping(value = "/good/tax",
+    @RequestMapping(value = "/good/order",
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)

@@ -1,2 +1,6 @@
 .swagger-codegen/
 .swagger-codegen-ignore
+.classpath
+.project
+.settings/
+/target/

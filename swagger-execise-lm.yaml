@@ -20,7 +20,7 @@ tags:
 schemes:
   - http
 paths:
-  /good/tax:
+  /good/oder:
     post:
       tags:
         - tax
