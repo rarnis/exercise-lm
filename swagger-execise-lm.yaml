@@ -76,6 +76,9 @@ definitions:
         type: integer
         format: int32
         description: category type id (as in good/category endpoint)
+      description:
+        type: string
+        description: good description
       quantity:
         type: integer
         format: int32

@@ -10,6 +10,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,6 +47,6 @@ public interface GoodApi {
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    ResponseEntity<Order> getTaxes(@ApiParam(value = "good list for taxes computation" ,required=true )  @Valid @RequestBody List<Good> body);
+    ResponseEntity<Order> getTaxes(@ApiParam(value = "good list for taxes computation" ,required=true )  @Valid @RequestBody List<Good> body, BindingResult errors);
 
 }

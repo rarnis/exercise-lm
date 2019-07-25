@@ -1,13 +1,15 @@
 package it.lm.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Good
@@ -16,19 +18,38 @@ import javax.validation.constraints.*;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-07-23T20:20:14.590Z")
 
 public class Good   {
+  @NotNull
   @JsonProperty("categoryId")
   private Integer categoryId = null;
 
   @JsonProperty("quantity")
+  @NotNull
+  @Min(1)
   private Integer quantity = null;
 
   @JsonProperty("price")
+  @NotNull
   private Double price = null;
 
   @JsonProperty("imported")
+  @NotNull
   private Boolean imported = false;
+  
+  @JsonProperty("description")
+  @NotNull
+  private String description = null;
 
-  public Good categoryId(Integer categoryId) {
+  
+  @ApiModelProperty(value = "good description")
+  public String getDescription() {
+	return description;
+  }
+
+public void setDescription(String description) {
+	this.description = description;
+}
+
+public Good categoryId(Integer categoryId) {
     this.categoryId = categoryId;
     return this;
   }
@@ -126,7 +147,7 @@ public class Good   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(categoryId, quantity, price, imported);
+    return Objects.hash(categoryId,description, quantity, price, imported);
   }
 
   @Override
@@ -135,6 +156,7 @@ public class Good   {
     sb.append("class Good {\n");
     
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    imported: ").append(toIndentedString(imported)).append("\n");
